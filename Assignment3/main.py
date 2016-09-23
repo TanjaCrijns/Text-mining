@@ -31,10 +31,10 @@ def gettimeline(file):
 
         with open("timeline" + file, "w") as f:
             for tuple in sorttable(table, sortedtable):
-                f.write(tuple[0] + ":\t" + tuple[1])
+                f.write("| " + tuple[0] + " | " + tuple[1])
 
         with open("unsortedtimeline" + file, "w") as f:
-            for tuple in sorttable(table, table):
+            for tuple in table:
                 f.write(tuple[0] + ":\t" + tuple[1])
 
 def rewritedate(string, sort):
@@ -72,7 +72,7 @@ def sorttable(table,sortedtable):
     return table
 
 if __name__ == "__main__":
-    name = "tatiana"
+    name = "barack"
     # get all sentences from text
     sentences(name + ".txt")
     # get the timeline from the sentences
