@@ -2,18 +2,36 @@
 
 I have included the timeline of Obama's life last because this is a table of six pages. I will answer the other questions first.
 
-##### 1. Report	the	precision	of	your	date	expression	extractor.
-Number of dates: 109
-Number of retrieved dates:109
-Number of correctly retrieved dates: 109
-Precision = 109/109 = 1
+##### *1. Report	the	precision	of	your	date	expression	extractor.*
+Number of retrieved dates:109<br />
+Number of correctly retrieved dates: 109<br />
+`Precision = 109/109 = 1`<br />
 
-##### Timeline of Obama's life
+The dates are all retrieved in the correct format. However, it is questionable wether the retrieved sentences are always useful. An example would be the following result, the event *moving to kenwood* did not happen in 1998 however the dates are extracted correctly:
+- *1998 - They moved to Kenwood, on Chicago's South Side, and welcomed two daughters several years later: Malia (born 1998) and Sasha (born 2001).*
+
+<br />
+Other examples are paragraph headers:
+- *2004 - Senate in 2004.* <br />
+- *2014 - Presidency After 2014 Elections* <br />
+
+##### 2. Difficulties
+My script from the first week didn't work so well on this text. The regular expression I used for finding end of lines didn't work so I made another regular expression that did work. A lot of other things were quite useless like identifying the titles, footnotes and pagenumbers so I removed this. <br />
+It was challenging to retrieve all the dates from the text because dates can be formatted differently. I wrote down the possible formats and decided to construct regular expression to find them in the text. The formats I used were:
+- *MM, YYYY, DD*
+- *MM, DD, YYYY*
+- *MM, YYYY*
+- *YYYY*<br/>
+
+The formats that I did not include were *MM* or *MM, DD* or *DD, MM* because there was no year present. However, this could be solved by remembering the last mentioned year although this might not always be correct. This is something that I could improve. <br/>
+In order to get the dates in the correct ISO 8601 format I parsed the string values of the dates with three regular expressions for *year*, *month* and *day* and returned them in the corrrect order.<br/>
+<br/><br/>
+##### *Timeline of Obama's life*
 
 
 | Date | Event sentence |
 |---|---|
-| 1928 | Leaving the Senate to weigh their options regarding his nomination of Merrick, President Obama set out on a historic mission to Cuba on March 20. The first sitting American president to visit the island nation since 1928, Obama made the three-day visit—accompanied by First Lady Michelle Obama and their daughters Malia and Sasha. |
+| 1928 | The first sitting American president to visit the island nation since 1928, Obama made the three-day visit—accompanied by First Lady Michelle Obama and their daughters Malia and Sasha. |
 | 1961 | Obama's visit was part of a larger program to establish greater cooperation between the two countries, the foundations of which were laid in late 2014, when Obama and Cuban president Raul Castro announced the normalizing of diplomatic relations for the first time since 1961.|
 | 1961-02-02 | While studying at the University of Hawaii at Manoa, Obama Sr. met fellow student Ann Dunham, and they married on February 2, 1961.|
 | 1961-08-04 | Born on August 4, 1961, in Honolulu, Hawaii, Barack Obama is the 44th and current president of the United States.|

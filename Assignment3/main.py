@@ -33,10 +33,6 @@ def gettimeline(file):
             for tuple in sorttable(table, sortedtable):
                 f.write("| " + tuple[0] + " | " + tuple[1])
 
-        with open("unsortedtimeline" + file, "w") as f:
-            for tuple in table:
-                f.write(tuple[0] + ":\t" + tuple[1])
-
 def rewritedate(string, sort):
     months = "(January|February|March|April|May|June|July|August|September|October|November|December)"
     monthnumbers = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
