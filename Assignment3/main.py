@@ -33,6 +33,10 @@ def gettimeline(file):
             for tuple in sorttable(table, sortedtable):
                 f.write(tuple[0] + ":\t" + tuple[1])
 
+        with open("unsortedtimeline" + file, "w") as f:
+            for tuple in sorttable(table, table):
+                f.write(tuple[0] + ":\t" + tuple[1])
+
 def rewritedate(string, sort):
     months = "(January|February|March|April|May|June|July|August|September|October|November|December)"
     monthnumbers = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -68,7 +72,7 @@ def sorttable(table,sortedtable):
     return table
 
 if __name__ == "__main__":
-    name = "barack"
+    name = "tatiana"
     # get all sentences from text
     sentences(name + ".txt")
     # get the timeline from the sentences
